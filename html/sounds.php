@@ -16,7 +16,10 @@ $username = $_SESSION['username'];
     </head>
     <body>
         <h1>Soundboard</h1>
-
+            <ul class="nav">
+                <li><a href="http://10.80.59.237/sounds.php"></a>Soundboard</li>
+                <li><a href="http://10.80.59.237/upload.php"></a>Upload</li>
+            </ul>
         <div class="center-wrapper">
             <div class="wrapper">
                 <div class="container">
