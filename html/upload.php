@@ -57,7 +57,7 @@
                             $allowedExts = ['mp3', 'wav'];
 
                             if (!in_array($fileExt, $allowedExts)) {
-                                echo "<p style='color:red;'>Unsupported file type</p>";
+                                echo "<p style='color:red;'>Wrong file type</p>";
                             } else {
                                 $safeFileName = uniqid() . '.' . $fileExt;
                                 $destination = $uploadDir . $safeFileName;

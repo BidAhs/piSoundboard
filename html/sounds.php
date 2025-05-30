@@ -9,53 +9,38 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== 'LoggedIn') {
 $username = $_SESSION['username'];
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>SOUNDBOARD - Play Sound</title>
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/navBar.css" />
-</head>
-<body>
-    <h1>Soundboard</h1>
-    <ul class="nav">
-        <li><a href="http://10.80.59.237/sounds.php">Soundboard</a></li>
-        <li><a href="http://10.80.59.237/upload.php"></a>Upload</li>
-    </ul>
-    <div class="center-wrapper">
-        <div class="wrapper">
-            <div class="container">
-                <?php
-                $pdo = new PDO('sqlite:../sql/sounds.db');
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    <head>
+        <title>SOUNDBOARD - Play Sound</title>
+        <link rel="stylesheet" href="styles/style.css" />
+    </head>
+    <body>
+        <h1>Soundboard</h1>
 
-                $sql = "SELECT * FROM sounds WHERE userName = :username";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([':username' => $username]);
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        <div class="center-wrapper">
+            <div class="wrapper">
+                <div class="container">
+                    <?php
+                    $pdo = new PDO('sqlite:../sql/sounds.db');
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                foreach ($results as $result) {
-                    $soundName = htmlspecialchars($result['sound']);
-                    $filePath = htmlspecialchars($result['filePath']);
-                    
-                    echo "<div class='sound-box' onclick=\"playSoundOnPi('$filePath')\">$soundName</div>";
-                }
+                    $sql = "SELECT * FROM sounds WHERE userName = :username";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([':username' => $username]);
+                    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($results as $result) {
+                        $soundName = htmlspecialchars($result['sound']);
+                        $filePath = htmlspecialchars($result['filePath']);
+                        
+                        echo "<div class='sound-box'>$soundName</div>";
+                    }
                 ?>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script>
-    function playSoundOnPi(file) {
-        fetch('playSound.php?file=' + encodeURIComponent(file))
-        .then(response => response.text())
-        .then(text => {
-            console.log(text);
-        })
-    }
-    </script>
-</body>
+
+    </body>
 </html>
 
- sudo apt-get install mpg123 
