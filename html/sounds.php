@@ -15,10 +15,14 @@ $username = $_SESSION['username'];
     <meta charset="UTF-8" />
     <title>SOUNDBOARD - Play Sound</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/navBar.css" />
 </head>
 <body>
     <h1>Soundboard</h1>
-
+    <ul class="nav">
+        <li><a href="http://10.80.59.237/sounds.php">Soundboard</a></li>
+        <li><a href="http://10.80.59.237/upload.php"></a>Upload</li>
+    </ul>
     <div class="center-wrapper">
         <div class="wrapper">
             <div class="container">
@@ -37,20 +41,21 @@ $username = $_SESSION['username'];
                     
                     echo "<div class='sound-box' onclick=\"playSoundOnPi('$filePath')\">$soundName</div>";
                 }
-            ?>
+                ?>
             </div>
         </div>
     </div>
 
     <script>
-        function playSoundOnPi(file) {
-            fetch('playSound.php?file=' + encodeURIComponent(file))
-            .then(response => response.text())
-            .then(text => {
-                console.log(text);
-            })
-        }
+    function playSoundOnPi(file) {
+        fetch('playSound.php?file=' + encodeURIComponent(file))
+        .then(response => response.text())
+        .then(text => {
+            console.log(text);
+        })
+    }
     </script>
 </body>
 </html>
 
+ sudo apt-get install mpg123 
