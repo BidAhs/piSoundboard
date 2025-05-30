@@ -19,9 +19,9 @@ $username = $_SESSION['username'];
 </head>
 <body>
     <h1>Soundboard</h1>
-    <ul>
+    <ul class="nav">
         <li><a href="http://10.80.59.237/sounds.php">Soundboard</a></li>
-        <li><a href="http://10.80.59.237/upload.php"></a>Upload Sounds</li>
+        <li><a href="http://10.80.59.237/upload.php"></a>Upload</li>
     </ul>
     <div class="center-wrapper">
         <div class="wrapper">
