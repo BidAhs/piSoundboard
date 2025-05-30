@@ -45,7 +45,7 @@
                     if ($passEntered === $row['Password']) {
                         $_SESSION['username'] = $userEntered;
                         $_SESSION['logged'] = 'LoggedIn';
-                        header("Location: http://localhost/upload.php");
+                        header("Location: http://10.80.59.237/upload.php");
                         exit;
                     } else {
                         echo "<p>Wrong password</p>";
@@ -57,7 +57,3 @@
         ?>
     </body>
 </html>
-
-<!-- sudo apt update
-sudo apt install php-sqlite3
-sudo systemctl restart apache2 -->
