@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="styles/style.css" />
     </head>
     <body>
+        <h1>Soundboard Login</h1>
+
         <div class="center-wrapper">
             <div class="wrapperC">
                 <div class="centerC">

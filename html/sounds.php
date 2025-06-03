@@ -17,9 +17,10 @@ $username = $_SESSION['username'];
 
     </head>
     <body>
-        <ul>
-            <li class="active"><a href="/sounds.php">Soundboard</a></li>
-            <li><a href="/upload.php">Upload</a></li>
+        <ul><br>
+            <li class="active"><a href="/sounds.php">Soundboard</a></li><br>
+            <li><a href="/upload.php">Upload</a></li><br>
+            <li class="bottom"><a href="/login.php">LOGOUT</a></li>
         </ul>
 
         <h1>Soundboard</h1>
@@ -40,11 +41,23 @@ $username = $_SESSION['username'];
                         $soundName = htmlspecialchars($result['sound']);
                         $filePath = htmlspecialchars($result['filePath']);
                         
-                        echo "<div class='sound-box'>$soundName</div>";
+                        echo "<div class='sound-box' onclick=\"playSound('$filePath')\">$soundName</div>";
                     }
                 ?>
                 </div>
             </div>
         </div>
     </body>
+    <script>
+        function playSound(path) {
+            fetch('http://10.80.59.237:5000/play-sound', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ path: path })
+            });
+        }
+    </script>
+
 </html>

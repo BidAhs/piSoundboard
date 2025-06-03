@@ -13,9 +13,16 @@
     <head>
         <title>SOUNDBOARD - Upload File</title>
         <link rel="stylesheet" href="styles/style.css" />
-
+        <link rel="stylesheet" href="styles/navBar.css" />
     </head>
     <body>
+
+        <ul><br>
+            <li><a href="/sounds.php">Soundboard</a></li><br>
+            <li class="active"><a href="/upload.php">Upload</a></li><br>
+            <li class="bottom"><a href="/login.php">LOGOUT</a></li>
+        </ul>
+
         <h1>UPLOAD NEW SOUNDS</h1>
 
         <div class="center-wrapper">
