@@ -26,7 +26,7 @@
                         <input type="text" name="soundName" id="soundName" required>
 
                         <label for="soundFile"><strong>Sound File:</strong></label>
-                        <input type="file" name="soundFile" id="soundFile" accept="audio/*" required>
+                        <input style="border-radius:0px;" type="file" name="soundFile" id="soundFile" accept="audio/*" required>
 
                         <div class="full-width">
                             <input type="submit" name="upload" value="Upload Sound">
@@ -65,15 +65,15 @@
                                 if (move_uploaded_file($fileTmpPath, $destination)) {
                                     $filePathForDB = 'uploads/' . $safeFileName;
 
-                                    $sql = "INSERT INTO sounds (userName, sound, filePath) VALUES (:username, :sound, :filepath)";
-                                    $stmt = $pdo->prepare($sql);
+                                $sql = "INSERT INTO sounds (userName, sound, filePath) VALUES (:username, :sound, :filepath)";
+                                    $stmt = $pdo->prepare("INSERT INTO sounds (userName, sound, filePath) VALUES (:username, :sound, :filepath)");
                                     $stmt->execute([
                                         ':username' => $username,
                                         ':sound' => $soundName,
                                         ':filepath' => $filePathForDB
                                     ]);
                                     echo "<p style='color:green;'>Sound uploaded</p>";
-
+                                    
                                 } else {
                                     echo "<p style='color:red;'>Failed</p>";
                                 }
