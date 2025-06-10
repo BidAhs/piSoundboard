@@ -36,12 +36,11 @@
                             $stmt->execute(['user' => $userEntered]);
                             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
                             if ($row) {
                                 if ($passEntered === $row['Password']) {
                                     $_SESSION['username'] = $userEntered;
                                     $_SESSION['logged'] = 'LoggedIn';
-                                    header("Location: http://10.80.59.237/upload.php");
+                                    header("Location: http://10.80.60.120/upload.php");
                                     exit;
                                 } else {
                                     echo "<p>Wrong password</p>";
