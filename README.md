@@ -6,7 +6,7 @@ A web-based soundboard that plays audio through your Raspberry Pi's speakers.
 - **Web-controlled** plays through Pi speakers
 - **User accounts** login system
 - **Upload** MP3/WAV files
-- **Clickable Buttons** sound buttons
+- **Clickable Buttons** play the sounds instantly
 
 ## Technology used
 - Raspberry Pi with speakers
