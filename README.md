@@ -2,8 +2,6 @@
 
 A web-based soundboard that plays audio through your Raspberry Pi's speakers. 
 
-## 🛠️ Setup
-
 ### Technology used
 - Raspberry Pi with speakers
 - PHP, HTML, CSS
