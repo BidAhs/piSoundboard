@@ -16,6 +16,7 @@ A web-based soundboard that plays audio through your Raspberry Pi's speakers.
 
 ## File Structure
 
+```
 soundboard/
 ├── app.py                 # Sound server (Flask)
 ├── login.php              # Login page
@@ -24,3 +25,4 @@ soundboard/
 ├── styles/
 │   ├── style.css          # Main styles
 │   └── navBar.css
+```
